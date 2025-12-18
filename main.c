@@ -18,13 +18,13 @@ int main(void) {
     // resolve_equation(a,b,c);
 
 
-    unsigned int n;
+    int n;
     printf("Entrer un nombre entier positif : ");
-    scanf("%u", &n);
-    if (is_prime(n) == 1 ){
-        printf("Le nombre %u est premier\n", n);
+    scanf("%d", &n);
+    if (is_prime(n)){
+        printf("Le nombre %d est premier\n", n);
     } else {
-        printf("Le nombre %u n'est pas premier\n", n);
+        printf("Le nombre %d n'est pas premier\n", n);
     }
     
     return EXIT_SUCCESS;

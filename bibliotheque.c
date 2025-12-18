@@ -43,7 +43,7 @@ void resolve_equation(double a, double b, double c) {
 }
 
 // Fonction qui détermine si un nombre entier est premier ou non
-int is_prime(unsigned int n)
+int is_prime( int n)
 {
     int i;
     if (n <= 1)

@@ -11,7 +11,7 @@ int power(int value, unsigned int pow);
 void resolve_equation(double a, double b, double c);
 
 // Définition d'une fonction qui détermine si un nombre entier est premier
-int is_prime(unsigned int n);
+int is_prime(int n);
 
 
 #endif

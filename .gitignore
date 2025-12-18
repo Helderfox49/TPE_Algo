@@ -4,6 +4,7 @@
 ### C ###
 # Executable 
 .exe
+.gitignore
 
 # Prerequisites
 *.d
