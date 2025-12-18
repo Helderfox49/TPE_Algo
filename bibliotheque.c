@@ -46,14 +46,36 @@ void resolve_equation(double a, double b, double c) {
 int is_prime( int n)
 {
     int i;
-    if (n <= 1)
-        return 0;
+    if (n <= 1)return 0;
 
     for (i = 2; i * i <= n; i++)
     {
         if (n % i == 0)
             return 0;
     }
-
     return 1;
 } 
+
+//Fonction qui crée un nouveau point
+Point create_point(double x, double y){
+    Point P;
+    P.x=x;
+    P.y=y;
+    return P;
+}
+
+
+//fonction qui calcule la distance entre 02 points
+double distance(const Point *A, const Point *B){
+    if (A == NULL || B == NULL) {
+        fprintf(stderr, "Erreur: pointeur NULL dans la fonction distance\n");
+        return -1.0;
+    }
+
+    double dx = B->x-A->x;
+    double dy = B->y-A->y;
+
+    return sqrt(dx*dx + dy+dy);
+}
+
+
