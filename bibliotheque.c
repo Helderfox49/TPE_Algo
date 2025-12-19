@@ -3,11 +3,6 @@
 #include <stdlib.h>
 #include "bibliotheque.h"
 
-#define ROUGE  "\033[31m"
-#define VERT   "\033[32m"
-#define RESET  "\033[0m"
-
-
 // Fonction de calcul du factoriel d'un nombre.
 unsigned int fact( unsigned int value ) {
     unsigned int result = 1;
@@ -44,12 +39,12 @@ void resolve_equation(double a, double b, double c) {
     if (delta > 0) {
         double x1 = (-b + sqrt(delta)) / (2 * a);
         double x2 = (-b - sqrt(delta)) / (2 * a);
-        printf("Deux solutions réelles distinctes : %s x1 = %.2f, x2 = %.2f %s\n", VERT, x1, x2, RESET);
+        printf("Deux solutions reelles distinctes : x1 = %.2f, x2 = %.2f\n", x1, x2);
     } else if (delta == 0) {
         double x = -b / (2 * a);
-        printf("Une solution réelle unique : %s x = %.2f %s\n", VERT, x, RESET);
+        printf("Une solution reelle unique : x = %.2f\n", x);
     } else if (delta < 0) {
-        printf("Pas de solutions réelles\n");
+        printf("Pas de solutions reelles\n");
     }
 }
 

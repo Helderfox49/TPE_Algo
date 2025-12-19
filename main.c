@@ -3,11 +3,6 @@
 #include <math.h>
 #include "bibliotheque.h"
 
-#define ROUGE  "\033[31m"
-#define VERT   "\033[32m"
-#define RESET  "\033[0m"
-
-
 int main(void) {
 
     printf("\n\n");
@@ -46,7 +41,7 @@ int main(void) {
                 printf("Entrer la puissance : ");
                 scanf("%u", &p);
 
-                printf("La puissance de %s%u%s par %s%u%s vaut : %s%u%s\n", VERT, n, RESET, VERT, p, RESET, VERT, power(n,p), RESET  );
+                printf("La puissance de %u par %u vaut : %u\n",  n, p, power(n,p) );
                 break;
             }
 
@@ -54,7 +49,7 @@ int main(void) {
                 unsigned int n;
                 printf("Entrer un nombre entier : ");
                 scanf("%u", &n);
-                printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, n, RESET, VERT, fact(n), RESET);
+                printf("Le factoriel de %u est : %u\n",  n, fact(n) );
                 break;
             }
             case 3: {
@@ -66,7 +61,7 @@ int main(void) {
 
                 printf("Anciennes valeurs : A = %d, B = %d\n", a, b);
                 swap(&a, &b);
-                printf("Nouvelles valeurs : %sA = %d, B = %d%s\n", VERT, a, b, RESET);
+                printf("Nouvelles valeurs : A = %d, B = %d\n",  a, b);
                 break;
             } 
             case 4: {
@@ -82,9 +77,9 @@ int main(void) {
                 printf("Entrer un nombre entier : ");
                 scanf("%d", &n);
                 if(is_prime(n)){
-                    printf("Le nombre %d est %spremier%s\n", n, VERT, RESET);
+                    printf("Le nombre %d est premier\n", n );
                 } else {
-                    printf("Le nombre %d %sn'est pas premier%s\n", n, VERT, RESET); 
+                    printf("Le nombre %d n'est pas premier\n", n ); 
                 }
                 break;
             }
@@ -103,9 +98,9 @@ int main(void) {
                 //Calcul de la distance AB
                 double d = distance(&A, &B);
 
-                printf("La distance AB entre les points \033[32mA(%.1lf, %.1lf)\033[0m ", A.x, A.y);
-                printf("et \033[32mB(%.1lf, %.1lf)\033[0m ", B.x, B.y);
-                printf("vaut \033[32m%.2lf\033[0m. \n", d);
+                printf("La distance AB entre les points A(%.1lf, %.1lf) ", A.x, A.y);
+                printf("et B(%.1lf, %.1lf) ", B.x, B.y);
+                printf("vaut %.2lf. \n", d);
                 break;
             }
             default:
