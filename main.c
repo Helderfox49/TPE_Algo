@@ -21,7 +21,7 @@ int main(void) {
         printf("\t\t1. Calcul de la puissance\n");
         printf("\t\t2. Calcul du factoriel\n");
         printf("\t\t3. Permutation des valeurs de deux nombres entiers\n");
-        printf("\t\t4. Équation du second degré\n");
+        printf("\t\t4. Equation du second degré\n");
         printf("\t\t5. Nombre Premier\n");
         printf("\t\t6. Distance entre deux points\n");
         printf("\t\t0. ou Autre valeur pour Quitter");
@@ -66,7 +66,7 @@ int main(void) {
             } 
             case 4: {
                 double a,b,c;
-                printf("Entrer les valeurs des coefficients a b et c (séparées par des espaces): ");
+                printf("Entrer les valeurs des coefficients a b et c (separees par des espaces): ");
                 scanf("%lf %lf %lf", &a, &b, &c);
                 resolve_equation(a, b, c);
 
@@ -86,10 +86,10 @@ int main(void) {
             case 6:{
                 double w,x,y,z;
 
-                printf("Entrer les coordonnées du point A (séparées par des virgules) Exemple 10,1 : ");
+                printf("Entrer les coordonnees du point A (separees par des virgules) Exemple 10,1 : ");
                 scanf("%lf , %lf", &w, &x);
 
-                printf("Entrer les coordonnées du point B (séparées par des virgules) Exemple  2,4 : ");
+                printf("Entrer les coordonnees du point B (separees par des virgules) Exemple  2,4 : ");
                 scanf("%lf , %lf", &y, &z);
 
                 Point A = create_point(w,x);
@@ -104,7 +104,7 @@ int main(void) {
                 break;
             }
             default:
-                printf("Merci d'avoir utilisé le programme. À bientôt !\n");
+                printf("Merci d'avoir utilise le programme. A bientot !\n");
                 return 0;
         }
 
@@ -114,7 +114,7 @@ int main(void) {
         scanf("%c", &continuer);
 
         if (continuer != 'O' && continuer != 'o') {
-            printf("Merci d'avoir utilisé le programme. À bientôt !\n");
+            printf("Merci d'avoir utilise le programme. A bientot !\n");
             choix = 0; // Casse la boucle do...while
         }
 
