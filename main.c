@@ -22,7 +22,11 @@ int main(void) {
         printf("6. Calculer la distance entre deux points\n");
         printf("0. Quitter\n");
         printf("Votre choix : ");
-        scanf("%d", &choix);
+        
+        if (scanf("%d", &choix) != 1) {
+            printf("Entrée invalide.\n");
+            exit(EXIT_FAILURE);
+        }
 
         // Traitement du choix de l'utilisateur
         switch (choix) {
@@ -47,7 +51,10 @@ int main(void) {
                 printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, m, RESET, ROUGE, f, RESET);
                 break;
             }
-            case 3: printf("En cours d'implémentation"); 
+            case 3: {
+                printf("En cours d'implémentation\n");
+                break;
+            } 
             case 4: {
                 double a,b,c;
                 printf("Entrer les valeurs de a b et c (séparées par des espaces): ");
@@ -61,9 +68,9 @@ int main(void) {
                 printf("Entrer un nombre entier : ");
                 scanf("%d", &n);
                 if(is_prime(n)){
-                    printf("Le nombre %s%d%s est %spremier%s", VERT, n, RESET, ROUGE, RESET);
+                    printf("Le nombre %s%d%s est %spremier%s\n", VERT, n, RESET, ROUGE, RESET);
                 } else {
-                    printf("Le nombre %s%d%s est %sn'est pas premier%s", VERT, n, RESET, ROUGE, RESET); 
+                    printf("Le nombre %s%d%s est %sn'est pas premier%s\n", VERT, n, RESET, ROUGE, RESET); 
                 }
                 break;
             }
@@ -71,10 +78,10 @@ int main(void) {
                 double w,x,y,z;
 
                 printf("Entrer les coordonnées du point A (séparées par des virgules) Exemple : 10,1 : ");
-                scanf("%lf,%lf", &w, &x);
+                scanf("%lf , %lf", &w, &x);
 
                 printf("Entrer les coordonnées du point B (séparées par des virgules) Exemple : 2,4 : ");
-                scanf("%lf,%lf", &y, &z);
+                scanf("%lf , %lf", &y, &z);
 
                 Point A = create_point(w,x);
                 Point B = create_point(y,z);
