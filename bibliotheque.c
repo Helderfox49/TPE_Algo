@@ -40,10 +40,10 @@ void resolve_equation(double a, double b, double c) {
     if (delta > 0) {
         double x1 = (-b + sqrt(delta)) / (2 * a);
         double x2 = (-b - sqrt(delta)) / (2 * a);
-        printf("L'équation a deux solutions réelles distinctes : x1 = \033[31m%.2f\033[0m et x2 = \033[31m%.2f\033[0m\n", x1, x2);
+        printf("Deux solutions réelles distinctes : x1 = \033[31m%.2f\033[0m et x2 = \033[31m%.2f\033[0m\n", x1, x2);
     } else if (delta == 0) {
         double x = -b / (2 * a);
-        printf("L'équation a une solution réelle unique : x = \033[31m%.2f\033[0m\n", x);
+        printf("Une solution réelle unique : x = \033[31m%.2f\033[0m\n", x);
     } else if (delta < 0) {
         printf("Pas de solutions réelles\n");
     }
@@ -76,11 +76,6 @@ Point create_point(double x, double y){
 
 //fonction qui calcule la distance entre 02 points
 double distance(const Point *A, const Point *B){
-    if (A == NULL || B == NULL) {
-        fprintf(stderr, "Erreur: pointeur NULL dans la fonction distance\n");
-        return -1.0;
-    }
-
     double dx = B->x-A->x;
     double dy = B->y-A->y;
 
@@ -95,3 +90,8 @@ void swap(int *a, int *b){
     *b = temp;
 }
 
+// Fonction  utilitaire pour vider le buffer
+void viderBuffer(void) {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}

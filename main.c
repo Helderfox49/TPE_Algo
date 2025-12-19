@@ -24,11 +24,12 @@ int main(void) {
         printf("Votre choix : ");
         
         if (scanf("%d", &choix) != 1) {
-            printf("Entrée invalide.\n");
-            exit(EXIT_FAILURE);
+            printf(ROUGE "Erreur : Veuillez saisir un nombre.\n" RESET);
+            viderBuffer(); // Nettoie le tampon pour la prochaine tentative
+            choix = -1;    // Force le passage au 'default' du switch
+            continue;
         }
 
-        // Traitement du choix de l'utilisateur
         switch (choix) {
             case 1: {
                 unsigned int n, p, r;

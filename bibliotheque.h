@@ -27,7 +27,10 @@ Point create_point(double x, double y);
 double distance(const Point *A, const Point *B);
 
 //Définition d'une fonction qui permute la valeur de 02 nombres entiers
-void peswaprmuter(int *a, int *b);
+void swap(int *a, int *b);
+
+// Définition d'une fonction  utilitaire pour vider le buffer
+void empty_buffer(void);
 
 
 #endif
