@@ -30,7 +30,7 @@ int power( int value, unsigned int pow ) {
 // Fonction pour résoudre une équation équation du second degré
 void resolve_equation(double a, double b, double c) {
     if (a == 0.0) {
-        printf(ROUGE "Le coefficient a doit être non nul\n" RESET);
+        printf("Le coefficient a doit être non nul\n");
         exit(0);
     }
 
