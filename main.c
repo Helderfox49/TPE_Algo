@@ -18,23 +18,24 @@ int main(void) {
     printf("\t\t++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
     int choix;
+    char continuer;
 
     do {
         // Affichage du menu
         printf("\n\t\t======================== MENU ========================\n");
-        printf("\t\t1. Calcul de la puissance d'un nombre\n");
-        printf("\t\t2. Calcul du factoriel d'un nombre\n");
+        printf("\t\t1. Calcul de la puissance\n");
+        printf("\t\t2. Calcul du factoriel\n");
         printf("\t\t3. Permutation des valeurs de deux nombres entiers\n");
-        printf("\t\t4. Résolution d'une équation du second degré\n");
-        printf("\t\t5. Déterminer si un nombre est premier\n");
-        printf("\t\t6. Calculer la distance entre deux points\n");
-        printf("\t\t0 ou Autre valeur pour Quitter");
+        printf("\t\t4. Équation du second degré\n");
+        printf("\t\t5. Nombre Premier\n");
+        printf("\t\t6. Distance entre deux points\n");
+        printf("\t\t0. ou Autre valeur pour Quitter");
         printf("\n\t\t======================================================\n");
         printf("\nVotre choix : ");
         
         if (scanf("%d", &choix) != 1) {
             empty_buffer();
-            choix = 0;   
+            choix = 0;   // Force la sortie du nombre si l'utilisateur n'entre pas un nombre
         }
 
         switch (choix) {
@@ -111,6 +112,17 @@ int main(void) {
                 printf("Merci d'avoir utilisé le programme. À bientôt !\n");
                 return 0;
         }
+
+        // --- Phase de confirmation ---
+        printf("\nVoulez-vous continuer ? (O/N) : ");
+        empty_buffer(); // Nettoie le tampon avant de lire un caractère
+        scanf("%c", &continuer);
+
+        if (continuer != 'O' && continuer != 'o') {
+            printf("Merci d'avoir utilisé le programme. À bientôt !\n");
+            choix = 0; // Casse la boucle do...while
+        }
+
     } while (choix != 0);
 
     return 0;
