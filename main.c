@@ -34,82 +34,12 @@ int main(void) {
         }
 
         switch (choix) {
-            case 1: {
-                unsigned int n, p;
-                printf("Entrer un nombre entier : ");
-                while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-                
-                printf("Entrer la puissance : ");
-                while(scanf("%u", &p) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-
-                printf("La puissance de %u par %u vaut : %u\n",  n, p, power(n,p) );
-                break;
-            }
-
-            case 2: {
-                unsigned int n;
-                printf("Entrer un nombre entier : ");
-                while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-
-                printf("Le factoriel de %u est : %u\n",  n, fact(n) );
-                break;
-            }
-            case 3: {
-                int a, b;
-                printf("Entrer la valeur de A : ");
-                while(scanf("%u", &a) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-                
-                printf("Entrer la valeur de B : ");
-                while(scanf("%u", &b) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-
-                printf("Anciennes valeurs : A = %d, B = %d\n", a, b);
-                swap(&a, &b);
-                printf("Nouvelles valeurs : A = %d, B = %d\n",  a, b);
-
-                break;
-            } 
-            case 4: {
-                double a,b,c;
-                printf("Entrer les valeurs des coefficients a b et c (separees par des espaces): ");
-                while (scanf("%lf %lf %lf", &a, &b, &c) != 3){printf("Erreur. Trois valeurs reelles requises : "); empty_buffer();}
-                
-                resolve_equation(a, b, c);
-
-                break;
-            }
-            case 5:{
-                int n;
-                printf("Entrer un nombre entier : ");
-                while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-
-                if(is_prime(n)){
-                    printf("Le nombre %d est premier\n", n );
-                } else {
-                    printf("Le nombre %d n'est pas premier\n", n ); 
-                }
-
-                break;
-            }
-            case 6:{
-                double w,x,y,z;
-
-                printf("Entrer les coordonnees du point A (separees par des virgules) Exemple 10,1 : ");
-                scanf("%lf , %lf", &w, &x);
-
-                printf("Entrer les coordonnees du point B (separees par des virgules) Exemple  2,4 : ");
-                scanf("%lf , %lf", &y, &z);
-
-                Point A = create_point(w,x);
-                Point B = create_point(y,z);
-                
-                //Calcul de la distance AB
-                double d = distance(&A, &B);
-
-                printf("La distance AB entre les points A(%.1lf, %.1lf) ", A.x, A.y);
-                printf("et B(%.1lf, %.1lf) ", B.x, B.y);
-                printf("vaut %.2lf. \n", d);
-                break;
-            }
+            case 1:menu_puissance(); break;
+            case 2: menu_factoriel(); break;
+            case 3:menu_permutation(); break;
+            case 4: menu_resolution(); break;
+            case 5:menu_premier(); break;
+            case 6:menu_distance(); break;
             default:
                 printf("Merci d'avoir utilise le programme. A bientot !\n");
                 return 0;
