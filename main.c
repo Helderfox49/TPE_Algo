@@ -28,27 +28,24 @@ int main(void) {
         printf("\t\t4. Résolution d'une équation du second degré\n");
         printf("\t\t5. Déterminer si un nombre est premier\n");
         printf("\t\t6. Calculer la distance entre deux points\n");
-        printf("\t\t0. Quitter");
+        printf("\t\t0 ou Autre valeur pour Quitter");
         printf("\n\t\t======================================================\n");
         printf("\nVotre choix : ");
         
         if (scanf("%d", &choix) != 1) {
-            printf(ROUGE "Erreur : Veuillez saisir un nombre.\n" RESET);
-            empty_buffer(); // Nettoie le tampon pour la prochaine tentative
-            choix = -1;    // Force le passage au 'default' du switch
-            continue;
+            empty_buffer();
+            choix = 0;   
         }
 
         switch (choix) {
             case 1: {
-                unsigned int n, p, r;
+                unsigned int n, p;
                 printf("Entrer un nombre entier : ");
                 scanf("%u", &n);
                 printf("Entrer la puissance : ");
                 scanf("%u", &p);
-                r = power(n,p);
 
-                printf("La puissance de %s%u%s par %s%u%s vaut : %s%u%s\n", VERT, n, RESET, VERT, p, RESET, VERT, r, RESET  );
+                printf("La puissance de %s%u%s par %s%u%s vaut : %s%u%s\n", VERT, n, RESET, VERT, p, RESET, VERT, power(n,p), RESET  );
                 break;
             }
 
@@ -110,12 +107,9 @@ int main(void) {
                 printf("vaut \033[32m%.2lf\033[0m. \n", d);
                 break;
             }
-            case 0:
-                printf("Merci d'avoir utilisé le programme. À bientôt !\n");
-                break;
-                
             default:
-                printf("Choix invalide. Veuillez entrer un numéro valide.\n");
+                printf("Merci d'avoir utilisé le programme. À bientôt !\n");
+                return 0;
         }
     } while (choix != 0);
 
