@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
 #include "bibliotheque.h"
 
 // Définition d'une fonction de calcul de factorielle.
@@ -7,7 +8,6 @@ unsigned int fact( unsigned int value ) {
     unsigned int result = 1;
     while ( value > 1 ) {
         result *= value;
-        printf("result : %u, Value : %u", result, value);
         value --;
     }
     return result;

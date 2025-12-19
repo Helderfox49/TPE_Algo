@@ -47,33 +47,33 @@ int main(void) {
                 printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, m, RESET, ROUGE, f, RESET);
                 break;
             }
-            case 3: print("En cours d'implémentation"); 
+            case 3: printf("En cours d'implémentation"); 
             case 4: {
-                float a,b,c;
-                printf("Entrer les valeurs de a b et c (séparées par des espaces)");
-                scanf("%lf %lf %lf", a, b, c);
+                double a,b,c;
+                printf("Entrer les valeurs de a b et c (séparées par des espaces): ");
+                scanf("%lf %lf %lf", &a, &b, &c);
                 resolve_equation(a, b, c);
 
                 break;
             }
             case 5:{
                 int n;
-                printf("Entrer un nombre entier");
+                printf("Entrer un nombre entier : ");
                 scanf("%d", &n);
                 if(is_prime(n)){
-                    printf("Le nombre %s%d%s est %spremier%s", VERT, n, RESET, ROUGE, n, RESET);
+                    printf("Le nombre %s%d%s est %spremier%s", VERT, n, RESET, ROUGE, RESET);
                 } else {
-                    printf("Le nombre %s%d%s est %sn'est pas premier%s", VERT, n, RESET, ROUGE, n, RESET); 
+                    printf("Le nombre %s%d%s est %sn'est pas premier%s", VERT, n, RESET, ROUGE, RESET); 
                 }
                 break;
             }
             case 6:{
                 double w,x,y,z;
 
-                printf("Entrer les coordonnées du point A (séparées par des virgules) Ex 10,1 : ");
+                printf("Entrer les coordonnées du point A (séparées par des virgules) Exemple : 10,1 : ");
                 scanf("%lf,%lf", &w, &x);
 
-                printf("Entrer les coordonnées du point B (séparées par des virgules) Ex 2,4 : ");
+                printf("Entrer les coordonnées du point B (séparées par des virgules) Exemple : 2,4 : ");
                 scanf("%lf,%lf", &y, &z);
 
                 Point A = create_point(w,x);
@@ -82,8 +82,9 @@ int main(void) {
                 //Calcul de la distance AB
                 double d = distance(&A, &B);
 
-                printf("La distance AB entre les points \033[32mA(%.1f, %.1f)\033[0m et \033[32mB(%.1f, %.1f)\033[0m");
-                printf("vaut \033[31m%.2f\033[0m. \n", A.x, A.y, B.x, B.y, d);
+                printf("La distance AB entre les points \033[32mA(%.1lf, %.1lf)\033[0m ", A.x, A.y);
+                printf("et \033[32mB(%.1lf, %.1lf)\033[0m ", B.x, B.y);
+                printf("vaut \033[31m%.2lf\033[0m. \n", d);
                 break;
             }
             case 0:
