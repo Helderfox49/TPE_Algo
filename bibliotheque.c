@@ -44,10 +44,10 @@ void resolve_equation(double a, double b, double c) {
     if (delta > 0) {
         double x1 = (-b + sqrt(delta)) / (2 * a);
         double x2 = (-b - sqrt(delta)) / (2 * a);
-        printf("Deux solutions réelles distinctes : \033[31mx1 = %.2f, x2 = %.2f\033[0m\n", x1, x2);
+        printf("Deux solutions réelles distinctes : %s x1 = %.2f, x2 = %.2f %s\n", VERT, x1, x2, RESET);
     } else if (delta == 0) {
         double x = -b / (2 * a);
-        printf("Une solution réelle unique : \033[31mx = %.2f\033[0m\n", x);
+        printf("Une solution réelle unique : %s x = %.2f %s\n", VERT, x, RESET);
     } else if (delta < 0) {
         printf("Pas de solutions réelles\n");
     }

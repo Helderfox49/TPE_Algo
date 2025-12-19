@@ -12,24 +12,25 @@ int main(void) {
 
     printf("\n\n");
 
-    printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
-    printf("+     Programme écris par : MBOTTO GUY ROBERT ULRICH     +\n");
-    printf("+            Matricule : CM-UMa-25ENSPM0020              +\n");
-    printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+    printf("\t\t++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+    printf("\t\t+     Programme écris par : MBOTTO GUY ROBERT ULRICH     +\n");
+    printf("\t\t+            Matricule : CM-UMa-25ENSPM0020              +\n");
+    printf("\t\t++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
 
     int choix;
 
     do {
         // Affichage du menu
-        printf("\n================ MENU ================\n");
-        printf("1. Calcul de la puissance d'un nombre\n");
-        printf("2. Calcul du factoriel d'un nombre\n");
-        printf("3. Permutation des valeurs de deux nombres entiers\n");
-        printf("4. Résolution d'une équation du second degré\n");
-        printf("5. Déterminer si un nombre est premier\n");
-        printf("6. Calculer la distance entre deux points\n");
-        printf("0. Quitter\n");
-        printf("Votre choix : ");
+        printf("\n\t\t======================== MENU ========================\n");
+        printf("\t\t1. Calcul de la puissance d'un nombre\n");
+        printf("\t\t2. Calcul du factoriel d'un nombre\n");
+        printf("\t\t3. Permutation des valeurs de deux nombres entiers\n");
+        printf("\t\t4. Résolution d'une équation du second degré\n");
+        printf("\t\t5. Déterminer si un nombre est premier\n");
+        printf("\t\t6. Calculer la distance entre deux points\n");
+        printf("\t\t0. Quitter");
+        printf("\n\t\t======================================================\n");
+        printf("\nVotre choix : ");
         
         if (scanf("%d", &choix) != 1) {
             printf(ROUGE "Erreur : Veuillez saisir un nombre.\n" RESET);
@@ -47,17 +48,15 @@ int main(void) {
                 scanf("%u", &p);
                 r = power(n,p);
 
-                printf("La puissance de %s%u%s par %s%u%s vaut : %s%u%s\n", VERT, n, RESET, VERT, p, RESET, ROUGE, r, RESET  );
+                printf("La puissance de %s%u%s par %s%u%s vaut : %s%u%s\n", VERT, n, RESET, VERT, p, RESET, VERT, r, RESET  );
                 break;
             }
 
             case 2: {
-                unsigned int m, f;
+                unsigned int n;
                 printf("Entrer un nombre entier : ");
-                scanf("%u", &m);
-
-                f = fact(m);
-                printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, m, RESET, VERT, f, RESET);
+                scanf("%u", &n);
+                printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, n, RESET, VERT, fact(n), RESET);
                 break;
             }
             case 3: {
@@ -74,7 +73,7 @@ int main(void) {
             } 
             case 4: {
                 double a,b,c;
-                printf("Entrer les valeurs de a b et c (séparées par des espaces): ");
+                printf("Entrer les valeurs des coefficients a b et c (séparées par des espaces): ");
                 scanf("%lf %lf %lf", &a, &b, &c);
                 resolve_equation(a, b, c);
 
@@ -85,19 +84,19 @@ int main(void) {
                 printf("Entrer un nombre entier : ");
                 scanf("%d", &n);
                 if(is_prime(n)){
-                    printf("Le nombre %s%d%s est %spremier%s\n", VERT, n, RESET, VERT, RESET);
+                    printf("Le nombre %d est %spremier%s\n", n, VERT, RESET);
                 } else {
-                    printf("Le nombre %s%d%s est %sn'est pas premier%s\n", VERT, n, RESET, VERT, RESET); 
+                    printf("Le nombre %d %sn'est pas premier%s\n", n, VERT, RESET); 
                 }
                 break;
             }
             case 6:{
                 double w,x,y,z;
 
-                printf("Entrer les coordonnées du point A (séparées par des virgules) Exemple : 10,1 : ");
+                printf("Entrer les coordonnées du point A (séparées par des virgules) Exemple 10,1 : ");
                 scanf("%lf , %lf", &w, &x);
 
-                printf("Entrer les coordonnées du point B (séparées par des virgules) Exemple : 2,4 : ");
+                printf("Entrer les coordonnées du point B (séparées par des virgules) Exemple  2,4 : ");
                 scanf("%lf , %lf", &y, &z);
 
                 Point A = create_point(w,x);
