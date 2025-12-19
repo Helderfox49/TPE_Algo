@@ -26,5 +26,8 @@ Point create_point(double x, double y);
 //Définition d'une fonction qui calcule la distance entre 02 points
 double distance(const Point *A, const Point *B);
 
+//Définition d'une fonction qui permute la valeur de 02 nombres entiers
+void peswaprmuter(int *a, int *b);
+
 
 #endif

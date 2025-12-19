@@ -52,7 +52,15 @@ int main(void) {
                 break;
             }
             case 3: {
-                printf("En cours d'implémentation\n");
+                int a, b;
+                printf("Entrer la valeur de A : ");
+                scanf("%d", &a);
+                printf("Entrer la valeur de B : ");
+                scanf("%d", &b);
+
+                printf("Anciennes valeurs : A = %d, B = %d\n", a, b);
+                swap(&a, &b);
+                printf("Nouvelles valeurs : %sA = %d, B = %d%s\n", VERT, a, b, RESET);
                 break;
             } 
             case 4: {

@@ -3,7 +3,8 @@
 #include <stdlib.h>
 #include "bibliotheque.h"
 
-// Définition d'une fonction de calcul de factorielle.
+
+// Fonction de calcul du factoriel d'un nombre.
 unsigned int fact( unsigned int value ) {
     unsigned int result = 1;
     while ( value > 1 ) {
@@ -13,7 +14,8 @@ unsigned int fact( unsigned int value ) {
     return result;
 }
 
-// Définition d'une fonction d'élévation à une puissance données.
+
+// Fonction d'élévation à une puissance données.
 int power( int value, unsigned int pow ) {
     if ( pow == 0 ) return 1;
     if ( pow == 1 ) return value;
@@ -25,7 +27,8 @@ int power( int value, unsigned int pow ) {
     return accumulator;
 }
 
-// Fonction pour résoudre l'équation du second degré
+
+// Fonction pour résoudre une équation équation du second degré
 void resolve_equation(double a, double b, double c) {
     if (a == 0.0) {
         printf("Le coefficient a doit être non nul\n");
@@ -46,6 +49,7 @@ void resolve_equation(double a, double b, double c) {
     }
 }
 
+
 // Fonction qui détermine si un nombre entier est premier ou non
 int is_prime( int n)
 {
@@ -59,6 +63,7 @@ int is_prime( int n)
     }
     return 1;
 } 
+
 
 //Fonction qui crée un nouveau point
 Point create_point(double x, double y){
@@ -82,4 +87,11 @@ double distance(const Point *A, const Point *B){
     return sqrt(dx*dx + dy+dy);
 }
 
+
+// Fontion qui permute la valeur de 02 entiers
+void swap(int *a, int *b){
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
 
