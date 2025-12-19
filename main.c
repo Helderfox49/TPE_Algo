@@ -37,9 +37,10 @@ int main(void) {
             case 1: {
                 unsigned int n, p;
                 printf("Entrer un nombre entier : ");
-                scanf("%u", &n);
+                while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+                
                 printf("Entrer la puissance : ");
-                scanf("%u", &p);
+                while(scanf("%u", &p) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
 
                 printf("La puissance de %u par %u vaut : %u\n",  n, p, power(n,p) );
                 break;
@@ -48,26 +49,30 @@ int main(void) {
             case 2: {
                 unsigned int n;
                 printf("Entrer un nombre entier : ");
-                scanf("%u", &n);
+                while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+
                 printf("Le factoriel de %u est : %u\n",  n, fact(n) );
                 break;
             }
             case 3: {
                 int a, b;
                 printf("Entrer la valeur de A : ");
-                scanf("%d", &a);
+                while(scanf("%u", &a) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+                
                 printf("Entrer la valeur de B : ");
-                scanf("%d", &b);
+                while(scanf("%u", &b) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
 
                 printf("Anciennes valeurs : A = %d, B = %d\n", a, b);
                 swap(&a, &b);
                 printf("Nouvelles valeurs : A = %d, B = %d\n",  a, b);
+
                 break;
             } 
             case 4: {
                 double a,b,c;
                 printf("Entrer les valeurs des coefficients a b et c (separees par des espaces): ");
-                scanf("%lf %lf %lf", &a, &b, &c);
+                while (scanf("%lf %lf %lf", &a, &b, &c) != 3){printf("Erreur. Trois valeurs reelles requises : "); empty_buffer();}
+                
                 resolve_equation(a, b, c);
 
                 break;
@@ -75,12 +80,14 @@ int main(void) {
             case 5:{
                 int n;
                 printf("Entrer un nombre entier : ");
-                scanf("%d", &n);
+                while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+
                 if(is_prime(n)){
                     printf("Le nombre %d est premier\n", n );
                 } else {
                     printf("Le nombre %d n'est pas premier\n", n ); 
                 }
+
                 break;
             }
             case 6:{
