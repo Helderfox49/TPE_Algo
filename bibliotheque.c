@@ -3,6 +3,10 @@
 #include <stdlib.h>
 #include "bibliotheque.h"
 
+#define ROUGE  "\033[31m"
+#define VERT   "\033[32m"
+#define RESET  "\033[0m"
+
 
 // Fonction de calcul du factoriel d'un nombre.
 unsigned int fact( unsigned int value ) {
@@ -31,7 +35,7 @@ int power( int value, unsigned int pow ) {
 // Fonction pour résoudre une équation équation du second degré
 void resolve_equation(double a, double b, double c) {
     if (a == 0.0) {
-        printf("Le coefficient a doit être non nul\n");
+        printf(ROUGE "Le coefficient a doit être non nul\n" RESET);
         exit(0);
     }
 
@@ -40,10 +44,10 @@ void resolve_equation(double a, double b, double c) {
     if (delta > 0) {
         double x1 = (-b + sqrt(delta)) / (2 * a);
         double x2 = (-b - sqrt(delta)) / (2 * a);
-        printf("Deux solutions réelles distinctes : x1 = \033[31m%.2f\033[0m et x2 = \033[31m%.2f\033[0m\n", x1, x2);
+        printf("Deux solutions réelles distinctes : \033[31mx1 = %.2f, x2 = %.2f\033[0m\n", x1, x2);
     } else if (delta == 0) {
         double x = -b / (2 * a);
-        printf("Une solution réelle unique : x = \033[31m%.2f\033[0m\n", x);
+        printf("Une solution réelle unique : \033[31mx = %.2f\033[0m\n", x);
     } else if (delta < 0) {
         printf("Pas de solutions réelles\n");
     }
@@ -91,7 +95,7 @@ void swap(int *a, int *b){
 }
 
 // Fonction  utilitaire pour vider le buffer
-void viderBuffer(void) {
+void empty_buffer(void) {
     int c;
     while ((c = getchar()) != '\n' && c != EOF);
 }

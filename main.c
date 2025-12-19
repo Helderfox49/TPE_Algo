@@ -9,6 +9,14 @@
 
 
 int main(void) {
+
+    printf("\n\n");
+
+    printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+    printf("+     Programme écris par : MBOTTO GUY ROBERT ULRICH     +\n");
+    printf("+            Matricule : CM-UMa-25ENSPM0020              +\n");
+    printf("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++\n");
+
     int choix;
 
     do {
@@ -16,7 +24,7 @@ int main(void) {
         printf("\n================ MENU ================\n");
         printf("1. Calcul de la puissance d'un nombre\n");
         printf("2. Calcul du factoriel d'un nombre\n");
-        printf("3. Permutation des valeurs de 2 variables\n");
+        printf("3. Permutation des valeurs de deux nombres entiers\n");
         printf("4. Résolution d'une équation du second degré\n");
         printf("5. Déterminer si un nombre est premier\n");
         printf("6. Calculer la distance entre deux points\n");
@@ -25,7 +33,7 @@ int main(void) {
         
         if (scanf("%d", &choix) != 1) {
             printf(ROUGE "Erreur : Veuillez saisir un nombre.\n" RESET);
-            viderBuffer(); // Nettoie le tampon pour la prochaine tentative
+            empty_buffer(); // Nettoie le tampon pour la prochaine tentative
             choix = -1;    // Force le passage au 'default' du switch
             continue;
         }
@@ -49,7 +57,7 @@ int main(void) {
                 scanf("%u", &m);
 
                 f = fact(m);
-                printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, m, RESET, ROUGE, f, RESET);
+                printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, m, RESET, VERT, f, RESET);
                 break;
             }
             case 3: {
@@ -77,9 +85,9 @@ int main(void) {
                 printf("Entrer un nombre entier : ");
                 scanf("%d", &n);
                 if(is_prime(n)){
-                    printf("Le nombre %s%d%s est %spremier%s\n", VERT, n, RESET, ROUGE, RESET);
+                    printf("Le nombre %s%d%s est %spremier%s\n", VERT, n, RESET, VERT, RESET);
                 } else {
-                    printf("Le nombre %s%d%s est %sn'est pas premier%s\n", VERT, n, RESET, ROUGE, RESET); 
+                    printf("Le nombre %s%d%s est %sn'est pas premier%s\n", VERT, n, RESET, VERT, RESET); 
                 }
                 break;
             }
@@ -100,7 +108,7 @@ int main(void) {
 
                 printf("La distance AB entre les points \033[32mA(%.1lf, %.1lf)\033[0m ", A.x, A.y);
                 printf("et \033[32mB(%.1lf, %.1lf)\033[0m ", B.x, B.y);
-                printf("vaut \033[31m%.2lf\033[0m. \n", d);
+                printf("vaut \033[32m%.2lf\033[0m. \n", d);
                 break;
             }
             case 0:
