@@ -3,46 +3,97 @@
 #include <math.h>
 #include "bibliotheque.h"
 
+#define ROUGE  "\033[31m"
+#define VERT   "\033[32m"
+#define RESET  "\033[0m"
+
 
 int main(void) {
-    // int result = power( 2, 3 );
-    // printf( "23 == %d\n", result );
-    
-    // result = fact( 6 );
-    // printf( "6! == %d\n", result );
+    int choix;
 
-    double a, b, c;
+    do {
+        // Affichage du menu
+        printf("\n================ MENU ================\n");
+        printf("1. Calcul de la puissance d'un nombre\n");
+        printf("2. Calcul du factoriel d'un nombre\n");
+        printf("3. Permutation des valeurs de 2 variables\n");
+        printf("4. Résolution d'une équation du second degré\n");
+        printf("5. Déterminer si un nombre est premier\n");
+        printf("6. Calculer la distance entre deux points\n");
+        printf("0. Quitter\n");
+        printf("Votre choix : ");
+        scanf("%d", &choix);
 
-    // printf("Enter les valeurs de a, b et c : ");
-    // scanf("%lf %lf %lf", &a, &b, &c);
+        // Traitement du choix de l'utilisateur
+        switch (choix) {
+            case 1: {
+                unsigned int n, p, r;
+                printf("Entrer un nombre entier : ");
+                scanf("%u", &n);
+                printf("Entrer la puissance : ");
+                scanf("%u", &p);
+                r = power(n,p);
 
-    // resolve_equation(a,b,c);
+                printf("La puissance de %s%u%s par %s%u%s vaut : %s%u%s\n", VERT, n, RESET, VERT, p, RESET, ROUGE, r, RESET  );
+                break;
+            }
 
-    /* Nombre premier */
+            case 2: {
+                unsigned int m, f;
+                printf("Entrer un nombre entier : ");
+                scanf("%u", &m);
 
-    // int n;
-    // printf("Entrer un nombre entier positif : ");
-    // scanf("%d", &n);
-    // if (is_prime(n)){
-    //     printf("Le nombre %d est premier\n", n);
-    // } else {
-    //     printf("Le nombre %d n'est pas premier\n", n);
-    // }
+                f = fact(m);
+                printf("Le factoriel de %s%u%s est : %s%u%s\n", VERT, m, RESET, ROUGE, f, RESET);
+                break;
+            }
+            case 3: print("En cours d'implémentation"); 
+            case 4: {
+                float a,b,c;
+                printf("Entrer les valeurs de a b et c (séparées par des espaces)");
+                scanf("%lf %lf %lf", a, b, c);
+                resolve_equation(a, b, c);
 
-    double w,x,y,z;
+                break;
+            }
+            case 5:{
+                int n;
+                printf("Entrer un nombre entier");
+                scanf("%d", &n);
+                if(is_prime(n)){
+                    printf("Le nombre %s%d%s est %spremier%s", VERT, n, RESET, ROUGE, n, RESET);
+                } else {
+                    printf("Le nombre %s%d%s est %sn'est pas premier%s", VERT, n, RESET, ROUGE, n, RESET); 
+                }
+                break;
+            }
+            case 6:{
+                double w,x,y,z;
 
-    printf("Entrer les coordonnées du point A (séparées par des virgules) Ex 10,1 : ");
-    scanf("%lf,%lf", &w, &x);
+                printf("Entrer les coordonnées du point A (séparées par des virgules) Ex 10,1 : ");
+                scanf("%lf,%lf", &w, &x);
 
-    printf("Entrer les coordonnées du point B (séparées par des virgules) Ex 2,4 : ");
-    scanf("%lf,%lf", &y, &z);
+                printf("Entrer les coordonnées du point B (séparées par des virgules) Ex 2,4 : ");
+                scanf("%lf,%lf", &y, &z);
 
-    Point A = create_point(w,x);
-    Point B = create_point(y,z);
-    
-    //Calcul de la distance AB
-    double d = distance(&A, &B);
+                Point A = create_point(w,x);
+                Point B = create_point(y,z);
+                
+                //Calcul de la distance AB
+                double d = distance(&A, &B);
 
-    printf("La distance AB entre les points \033[32mA(%.1f, %.1f)\033[0m et \033[32mB(%.1f, %.1f)\033[0m vaut \033[31m%.2f\033[0m. \n", A.x, A.y, B.x, B.y, d);
-    return EXIT_SUCCESS;
+                printf("La distance AB entre les points \033[32mA(%.1f, %.1f)\033[0m et \033[32mB(%.1f, %.1f)\033[0m");
+                printf("vaut \033[31m%.2f\033[0m. \n", A.x, A.y, B.x, B.y, d);
+                break;
+            }
+            case 0:
+                printf("Merci d'avoir utilisé le programme. À bientôt !\n");
+                break;
+                
+            default:
+                printf("Choix invalide. Veuillez entrer un numéro valide.\n");
+        }
+    } while (choix != 0);
+
+    return 0;
 }

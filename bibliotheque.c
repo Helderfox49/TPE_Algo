@@ -7,6 +7,7 @@ unsigned int fact( unsigned int value ) {
     unsigned int result = 1;
     while ( value > 1 ) {
         result *= value;
+        printf("result : %u, Value : %u", result, value);
         value --;
     }
     return result;
@@ -26,19 +27,22 @@ int power( int value, unsigned int pow ) {
 
 // Fonction pour résoudre l'équation du second degré
 void resolve_equation(double a, double b, double c) {
+    if (a == 0.0) {
+        printf("Le coefficient a doit être non nul\n");
+        exit(0);
+    }
+
     double delta = b*b-4*a*c;
 
     if (delta > 0) {
         double x1 = (-b + sqrt(delta)) / (2 * a);
         double x2 = (-b - sqrt(delta)) / (2 * a);
-        printf("L'équation a deux solutions réelles distinctes : x1 = %.2f et x2 = %.2f\n", x1, x2);
+        printf("L'équation a deux solutions réelles distinctes : x1 = \033[31m%.2f\033[0m et x2 = \033[31m%.2f\033[0m\n", x1, x2);
     } else if (delta == 0) {
         double x = -b / (2 * a);
-        printf("L'équation a une solution réelle unique : x = %.2f\n", x);
+        printf("L'équation a une solution réelle unique : x = \033[31m%.2f\033[0m\n", x);
     } else if (delta < 0) {
         printf("Pas de solutions réelles\n");
-    } else {
-        printf("Le coefficient a doit être non nul\n");
     }
 }
 
