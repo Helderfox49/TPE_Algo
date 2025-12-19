@@ -98,61 +98,102 @@ void empty_buffer(void) {
 //Fonction du menu pour le calcul de la puissance
 void menu_puissance(void){
     unsigned int n, p;
-    printf("Entrer un nombre entier : ");
-    while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-    
-    printf("Entrer la puissance : ");
-    while(scanf("%u", &p) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+    char reponse;
 
-    printf("La puissance de %u par %u vaut : %u\n",  n, p, power(n,p) );
+    do{
+        printf("Entrer un nombre entier : ");
+        while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+        
+        printf("Entrer la puissance : ");
+        while(scanf("%u", &p) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+
+        printf("La puissance de %u par %u vaut : %u\n",  n, p, power(n,p) );
+
+        printf("Voulez vous continuez (O/N) avec cette fonction : ");
+        empty_buffer();
+        scanf("%c", &reponse);
+    }while (reponse == 'O' || reponse == 'o');    
 }
 
 //Fonction du menu pour le calcul du factoriel
 void menu_factoriel(void){
     unsigned int n;
-    printf("Entrer un nombre entier : ");
-    while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+    char reponse; 
 
-    printf("Le factoriel de %u est : %u\n",  n, fact(n) );
+    do{
+        printf("Entrer un nombre entier : ");
+        while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+
+        printf("Le factoriel de %u est : %u\n",  n, fact(n) );
+
+        printf("Voulez vous continuez (O/N) avec cette fonction : ");
+        empty_buffer();
+        scanf("%c", &reponse);
+    }while (reponse == 'O' || reponse == 'o'); 
+
 }
 
 
 //Fonction du menu pour la permutation de 02 nombres entiers
 void menu_permutation(void){
     int a, b;
-    printf("Entrer la valeur de A : ");
-    while(scanf("%u", &a) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
-    
-    printf("Entrer la valeur de B : ");
-    while(scanf("%u", &b) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+    char reponse;
 
-    printf("Anciennes valeurs : A = %d, B = %d\n", a, b);
-    swap(&a, &b);
-    printf("Nouvelles valeurs : A = %d, B = %d\n",  a, b);
+    do{
+        printf("Entrer la valeur de A : ");
+        while(scanf("%u", &a) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+        
+        printf("Entrer la valeur de B : ");
+        while(scanf("%u", &b) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+
+        printf("Anciennes valeurs : A = %d, B = %d\n", a, b);
+        swap(&a, &b);
+        printf("Nouvelles valeurs : A = %d, B = %d\n",  a, b);
+
+        printf("Voulez vous continuez (O/N) avec cette fonction : ");
+        empty_buffer();
+        scanf("%c", &reponse);   
+    }while(reponse == 'O' || reponse == 'o');
 }
 
 
 //Fonction du menu pour la résolution d'une équation du second dégré
 void menu_resolution(void){
     double a,b,c;
-    printf("Entrer les valeurs des coefficients a b et c (separees par des espaces): ");
-    while (scanf("%lf %lf %lf", &a, &b, &c) != 3){printf("Erreur. Trois valeurs reelles requises : "); empty_buffer();}
-    
-    resolve_equation(a, b, c);   
+    char reponse;
+
+    do{
+        printf("Entrer les valeurs des coefficients a b et c (separees par des espaces): ");
+        while (scanf("%lf %lf %lf", &a, &b, &c) != 3){printf("Erreur. Trois valeurs reelles requises : "); empty_buffer();}
+        
+        resolve_equation(a, b, c);   
+
+        printf("Voulez vous continuez (O/N) avec cette fonction : ");
+        empty_buffer();
+        scanf("%c", &reponse);   
+    }while(reponse == 'O' || reponse == 'o');
 }
 
 
 //Fonction du menu déterminer si un nombre est premier ou pas
 void menu_premier(void){
     int n;
-    printf("Entrer un nombre entier : ");
-    while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+    char reponse;
 
-    if(is_prime(n)){
-        printf("Le nombre %d est premier\n", n );
-    } else {
-        printf("Le nombre %d n'est pas premier\n", n ); 
-    }
+    do{       
+        printf("Entrer un nombre entier : ");
+        while(scanf("%u", &n) != 1) { printf("Erreur. Entier requis : "); empty_buffer(); }
+
+        if(is_prime(n)){
+            printf("Le nombre %d est premier\n", n );
+        } else {
+            printf("Le nombre %d n'est pas premier\n", n ); 
+        }
+
+        printf("Voulez vous continuez (O/N) avec cette fonction : ");
+        empty_buffer();
+        scanf("%c", &reponse);   
+    }while(reponse == 'O' || reponse == 'o');
 
 }
 
@@ -160,20 +201,28 @@ void menu_premier(void){
 //Fonction du menu pour le calcul de la distance entre 02 points
 void menu_distance(void){
     double w,x,y,z;
+    char reponse;
 
-    printf("Entrer les coordonnees du point A (separees par des virgules) Exemple 10,1 : ");
-    scanf("%lf , %lf", &w, &x);
+    do {
+        printf("Entrer les coordonnees du point A (separees par des virgules) Exemple 10,1 : ");
+        scanf("%lf , %lf", &w, &x);
 
-    printf("Entrer les coordonnees du point B (separees par des virgules) Exemple  2,4 : ");
-    scanf("%lf , %lf", &y, &z);
+        printf("Entrer les coordonnees du point B (separees par des virgules) Exemple  2,4 : ");
+        scanf("%lf , %lf", &y, &z);
 
-    Point A = create_point(w,x);
-    Point B = create_point(y,z);
+        Point A = create_point(w,x);
+        Point B = create_point(y,z);
+        
+        //Calcul de la distance AB
+        double d = distance(&A, &B);
+
+        printf("La distance AB entre les points A(%.1lf, %.1lf) ", A.x, A.y);
+        printf("et B(%.1lf, %.1lf) ", B.x, B.y);
+        printf("vaut %.2lf. \n", d);
+
+        printf("Voulez vous continuez (O/N) avec cette fonction : ");
+        empty_buffer();
+        scanf("%c", &reponse);   
+    }while(reponse == 'O' || reponse == 'o');
     
-    //Calcul de la distance AB
-    double d = distance(&A, &B);
-
-    printf("La distance AB entre les points A(%.1lf, %.1lf) ", A.x, A.y);
-    printf("et B(%.1lf, %.1lf) ", B.x, B.y);
-    printf("vaut %.2lf. \n", d);
 }

@@ -45,16 +45,6 @@ int main(void) {
                 return 0;
         }
 
-        // --- Phase de confirmation ---
-        printf("\nVoulez-vous continuer ? (O/N) : ");
-        empty_buffer(); // Nettoie le tampon avant de lire un caractère
-        scanf("%c", &continuer);
-
-        if (continuer != 'O' && continuer != 'o') {
-            printf("Merci d'avoir utilise le programme. A bientot !\n");
-            choix = 0; // Casse la boucle do...while
-        }
-
     } while (choix != 0);
 
     return 0;
